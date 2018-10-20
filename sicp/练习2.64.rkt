@@ -15,7 +15,7 @@
               (let ((right-tree (car right-result))
                     (remaining-elts (cdr right-result)))
                 (cons (make-tree this-entry left-tree right-tree)
-                      remaining-elts))))))))
+                      remaining-elts))))))));o(n)
 
 (define (make-tree entry left right)
     (list entry left right))
