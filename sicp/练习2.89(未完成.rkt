@@ -1,0 +1,17 @@
+;假定输入x为次数 y为基数 (x y) (x y)
+(define (make-term terms)
+  (let ((t1 (first-term terms))
+        (rest (rest-term terms)))
+    (let ((t1-of-rest (first-term rest)))
+          (define (iter t1-order-minus-1 rest)
+            (cond ((= 0 (order t1-order-minus-1) '(0))
+                  ((= t1-order-minus-1 (order t1-of-rest))
+                   (make-term rest))
+                  (else
+                   (cons 0 (iter (- t1-order-minus-1 1) rest))))))
+          (cons (coeff t1) (iter (- (order t1) 1) rest-term)))))
+
+(define (first-term term-list) (car term-list))
+(define (rest-term term-list) (cdr term-list))
+(define (coeff term) (cadr term))
+(define (order term) (car term))
