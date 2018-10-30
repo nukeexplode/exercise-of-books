@@ -4,18 +4,18 @@ void show_bytes(byte_pointer start,size_t len );
 void show_pointer(void *x);
 void show_int(int x); 
 void show_float(float x);
-void test_show_bytes(int val);
+void test_show_bytes(float val);
 void show_long(long x);
 int main()
 {
-	test_show_bytes(123456.24); 
+	test_show_bytes(0.2); 
 	
 	return 0;
 }
 
-void test_show_bytes(int val) {
+void test_show_bytes(float val) {
 	int ival = val;
-	float fval = (float)ival;
+	float fval = (float)val;
 	int *pval = &ival;
 	long lval = (long)val; 
 	show_int(ival);
